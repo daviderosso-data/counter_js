@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Voto Emoji</title>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div id="overlayAnimation">
+        <div id="title">Grazie per il tuo voto!</div>
+    </div>
+
+    
+    <div id="splashScreen">
+        <div id="splashContent">Ciao, Noi di ICHEA ci impegniamo giorno dopo giorno 
+            per garantirti la migliore esperienza nel nostro store.<br>
+            Vorremmo sapere come ti sei trovato oggi nel nostro negozio.
+        </div>
+        <button id="closeSplash">Lascia una Recensione</button>
+        <div id="splashContent">Persone che hanno lasciato un voto: <span id="totalVote">0</span> </div>
+    </div>
+
+    <div id="content">
+        <div id="centerBox">
+            <div id="title">Voto medio
+            </div>
+        <img id="centralImg" src="assets/img/iconeblu/neutral.png" alt="icona normale">
+        
+        <fieldset id="callToAction">
+            <legend>Come ti Senti?</legend>
+        
+        <div id="centerButton">
+            <button class="button" id="negative"> <img id="buttonImg" src="assets/img/iconecolor/sad.png" alt="icona triste"></button>
+            <button class="button" id="neutral"> <img id="buttonImg" src="assets/img/iconecolor/neutral.png" alt="icona normale"></button>
+            <button class="button" id="positive"> <img id="buttonImg" src="assets/img/iconecolor/happy.png" alt="icona felice"></button>
+        </div>
+    </div>
+</fieldset>
+        
+        <div id="result">
+            <div class="counter">Negativo: <span id="negativeCount">0</span></div>
+            <div class="counter">Neutro: <span id="neutralCount">0</span></div>
+            <div class="counter">Positivo: <span id="positiveCount">0</span></div>
+            <div class="counter">Media Voti: <span id="average">0</span></div>
+            <button class="resetButton" id="reset">Reset</button>
+        </div>
+    </div>
+
+    <script src="assets/js/counter.js"></script>
+</body>
+</html>
