@@ -46,7 +46,7 @@ function updateVotes(type){
     else if( type === 'neutral') {neutral++; totalVotes++;} // se l'argomento é negative aumento il counter di neutral e il numero di voti totali
     else if( type === 'positive'){ positive++; totalVotes++;} // se l'argomento é positive aumento il counter di positive e il numero di voti totali
     updateDisplay(); // richiamo la funzione updateDisplay
-    disableButton(5000); // disabilito i pulsanti per 5 secondi
+    disableButton(4000); // disabilito i pulsanti per 5 secondi
     triggerOverlay();
 }
 
@@ -56,6 +56,7 @@ function updateDisplay(){
     document.getElementById('neutralCount').textContent = neutral;
     document.getElementById('positiveCount').textContent = positive;
     document.getElementById('totalVote').textContent = totalVotes;
+
 
     // creo la variabile average
 

@@ -5,7 +5,7 @@
 }
 
 body{
-    background-color: #FBDA0C;/*0057AD*/
+    background-color: #FBDA0C;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
@@ -30,9 +30,15 @@ body{
     font-size: 50px;
     padding:15px;
     border: 0px;
-    background-color: #FBDA0C;
+    background-color: #FBDA0C00;
     border-radius: 15px;
     cursor: pointer;
+}
+#buttonText{
+    font-size: 25px;
+    padding: 0px;
+    color: #0057AD;
+    font-weight: 600;
 }
 
 #result{
@@ -46,10 +52,15 @@ body{
 
 }
 #centralImg{
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
     margin-bottom: 50px;
     margin-top: 10px;
+    border-color: white;
+    border-width: 10px;
+    border-radius: 15px;
+    border-style: solid;
+
     
 }
 #splashScreen{
@@ -69,6 +80,21 @@ body{
     font-size: 60px;
     padding: 30px;
     background-color: #FBDA0C;
+    color: #0057AD;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: bolder;
+    text-transform: uppercase;
+    border: 0px;
+    cursor: pointer;
+}
+#closeSplash:hover{
+    background-color: #ffee81;
+    color: #013366;
+}
+
+#titleImpact{
+    font-size: 80px;
+    padding: 30px;
     color: #0057AD;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-weight: bolder;
@@ -103,7 +129,7 @@ body{
 }
 
 #title{
-    color: #0057AD;
+    color: #FBDA0C;
     font-size: 30px;
     font-weight: 600;
 }
@@ -113,10 +139,10 @@ body{
     font-size: 20px;
     font-weight: 600;
     padding: 10px;
-    border-style: solid;
+    border-style:inset;
     border-radius: 15px;
     border-color: #0057AD;
-    border-width: 2px;
+    border-width: 1px;
 }
 
 #overlayAnimation {
@@ -125,7 +151,7 @@ body{
     bottom: 0px;
     width: 100%;
     height: 100%;
-    background-color:#FBDA0C;
+    background-color: #0057AD;
     display: none;
     flex-direction: column;
     justify-content: center;
