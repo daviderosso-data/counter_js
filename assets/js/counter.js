@@ -4,12 +4,12 @@ let negative = 0;
 let neutral = 0;
 let positive = 0;
 let totalVotes = 0;
+const centerBoxDiv = document.getElementById('centerBox');
+const spashBox = document.getElementById('spashScreen');
 
 // ascolto i click sugli elementi con id negative,neutral,positive e vado a richiamare la 
 // funzione updateVotes e passo l'argomento corrispondente
-document.getElementById('negative').addEventListener('click', ()=> updateVotes('negative'));
-document.getElementById('neutral').addEventListener('click', ()=> updateVotes('neutral')); 
-document.getElementById('positive').addEventListener('click', ()=> updateVotes('positive'));
+/* */
 
 // ascolto i click sull'elemento reset e vado a richiamare la funzione resetVotes
 document.getElementById('reset').addEventListener('click', resetVotes);
@@ -27,8 +27,40 @@ function disableButton(time){
             button.disabled = false;
         }); },time);
 }
-// creo un overlay per ringraziare quando si vota
 
+// Funzione per la creazione dei pulsanti con immagine, alt text, e testo
+
+function createButton(id, buttonText,imgSrc,imgAlt, parent) {
+    const button = document.createElement('button'); 
+    button.id = id; 
+    button.className = 'button'; 
+    button.innerHTML = `
+        <img id="buttonImg" src="${imgSrc}" alt="${imgAlt}">
+       <span id="buttonText"><br>${buttonText}</span>`;
+    centerButton.appendChild(button); 
+    return button; 
+}
+
+function setupButtons() {
+    const centerButton = document.createElement('div'); 
+    centerButton.id = 'centerButton';
+    centerBoxDiv.appendChild(centerButton); 
+
+    const negativeButton = createButton('negative', 'Poco Soddisfatto','assets/img/iconecolor/sad.png','gatto triste', centerBoxDiv);
+    const neutralButton = createButton('neutral', 'Non Male','assets/img/iconecolor/neutral.png','gatto neutrale', centerBoxDiv);
+    const positiveButton = createButton('positive', 'Che spettacolo!','assets/img/iconecolor/happy.png','gatto felice', centerBoxDiv);
+
+    document.getElementById('negative').addEventListener('click', ()=> updateVotes('negative'));
+    document.getElementById('neutral').addEventListener('click', ()=> updateVotes('neutral'));  
+    document.getElementById('positive').addEventListener('click', ()=> updateVotes('positive')); 
+}
+
+// Inizializza i pulsanti al caricamento della pagina
+document.addEventListener('DOMContentLoaded', setupButtons);
+
+
+
+// creo un overlay per ringraziare quando si vota
 function triggerOverlay() {
     const overlay = document.getElementById('overlayAnimation');
     overlay.style.display = 'flex';
@@ -65,18 +97,22 @@ function updateDisplay(){
 
     // creo la costante centralImg assegnata all'icona centrale
     const centralImg = document.getElementById('centralImg');
+    const averageText = document.getElementById('averageText');
 
     //definisco quale immagine utilizzare per mostrare la media voti corrente
 
     if (average > 0.3){
         centralImg.src = 'assets/img/iconeblu/happy.png'
         centralImg.alt = 'icona felice'
+        averageText.textContent = 'che spettacolo!'
     }else if (average < -0,3){
         centralImg.src = 'assets/img/iconeblu/sad.png'
         centralImg.alt = 'icona triste'
+        averageText.textContent = 'poco soddisfatto'
     }else { 
         centralImg.src = 'assets/img/iconeblu/neutral.png'
         centralImg.alt = 'icona normale'
+        averageText.textContent = 'non male'
     }}
 
     // creo la funzione per resettare il contatore sotto l'utilizzo di una password
