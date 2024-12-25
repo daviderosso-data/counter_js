@@ -6,10 +6,7 @@ let positive = 0;
 let totalVotes = 0;
 const centerBoxDiv = document.getElementById('centerBox');
 const spashBox = document.getElementById('spashScreen');
-
-// ascolto i click sugli elementi con id negative,neutral,positive e vado a richiamare la 
-// funzione updateVotes e passo l'argomento corrispondente
-/* */
+const centerButton = document.createElement('div'); 
 
 // ascolto i click sull'elemento reset e vado a richiamare la funzione resetVotes
 document.getElementById('reset').addEventListener('click', resetVotes);
@@ -42,13 +39,15 @@ function createButton(id, buttonText,imgSrc,imgAlt, parent) {
 }
 
 function setupButtons() {
-    const centerButton = document.createElement('div'); 
+  
     centerButton.id = 'centerButton';
     centerBoxDiv.appendChild(centerButton); 
 
     const negativeButton = createButton('negative', 'Poco Soddisfatto','assets/img/iconecolor/sad.png','gatto triste', centerBoxDiv);
     const neutralButton = createButton('neutral', 'Non Male','assets/img/iconecolor/neutral.png','gatto neutrale', centerBoxDiv);
     const positiveButton = createButton('positive', 'Che spettacolo!','assets/img/iconecolor/happy.png','gatto felice', centerBoxDiv);
+
+// ascolto i click sugli elementi con id negative,neutral,positive e vado a richiamare la funzione updateVotes e passo l'argomento corrispondente
 
     document.getElementById('negative').addEventListener('click', ()=> updateVotes('negative'));
     document.getElementById('neutral').addEventListener('click', ()=> updateVotes('neutral'));  
@@ -57,8 +56,6 @@ function setupButtons() {
 
 // Inizializza i pulsanti al caricamento della pagina
 document.addEventListener('DOMContentLoaded', setupButtons);
-
-
 
 // creo un overlay per ringraziare quando si vota
 function triggerOverlay() {
@@ -78,7 +75,7 @@ function updateVotes(type){
     else if( type === 'neutral') {neutral++; totalVotes++;} // se l'argomento é negative aumento il counter di neutral e il numero di voti totali
     else if( type === 'positive'){ positive++; totalVotes++;} // se l'argomento é positive aumento il counter di positive e il numero di voti totali
     updateDisplay(); // richiamo la funzione updateDisplay
-    disableButton(4000); // disabilito i pulsanti per 5 secondi
+    disableButton(5000); // disabilito i pulsanti per 5 secondi
     triggerOverlay();
 }
 
