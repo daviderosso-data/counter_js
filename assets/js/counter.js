@@ -50,9 +50,9 @@ function setupButtons() {
 
 // ascolto i click sugli elementi con id negative,neutral,positive e vado a richiamare la funzione updateVotes e passo l'argomento corrispondente
 
-    document.getElementById('negative').addEventListener('click', ()=> updateVotes('negative'));
-    document.getElementById('neutral').addEventListener('click', ()=> updateVotes('neutral'));  
-    document.getElementById('positive').addEventListener('click', ()=> updateVotes('positive')); 
+    document.getElementById('negative').addEventListener('click', updateVotes('negative'));
+    document.getElementById('neutral').addEventListener('click', updateVotes('neutral'));  
+    document.getElementById('positive').addEventListener('click', updateVotes('positive')); 
 }
 
 // Inizializza i pulsanti al caricamento della pagina
