@@ -22,9 +22,13 @@ https://www.linkedin.com/in/rosso-davide/
 
 ## Version History
 
-1.0.3 26-12-2024 Bugfix
-1.0.2 26-12-2024 Bugfix
-1.0.1 26-12-2024 Aggiunta favicon, bugfix
-1.0.0 26-12-2024
+* 1.1.0 Stable
+* 1.0.6 Bugfix riordino codice e aggiornamento README
+* 1.0.5 Bugfix riordino codice
+* 1.0.4 Bugfix
+* 1.0.3 Bugfix
+* 1.0.2 Bugfix
+* 1.0.1 Aggiunta favicon, bugfix
+* 1.0.0 26-12-2024
 
 
