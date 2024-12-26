@@ -102,7 +102,7 @@ function updateDisplay(){
         centralImg.src = 'assets/img/buttons/happy.png'
         centralImg.alt = 'icona felice'
         averageText.textContent = 'che spettacolo!'
-    }else if (average < - 0.3){
+    }else if (average < -0.3){
         centralImg.src = 'assets/img/buttons/sad.png'
         centralImg.alt = 'icona triste'
         averageText.textContent = 'poco soddisfatto'
