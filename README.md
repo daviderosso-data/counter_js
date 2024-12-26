@@ -22,5 +22,7 @@ https://www.linkedin.com/in/rosso-davide/
 
 ## Version History
 
+1.0.1 26-12-2024 Aggiunta favicon, bugfix
 1.0.0 26-12-2024
+
 
