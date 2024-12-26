@@ -1,4 +1,4 @@
-// definisco variabili
+// definisco variabili e costanti
 
 let negative = 0;
 let neutral = 0;
@@ -38,6 +38,7 @@ function createButton(id, buttonText,imgSrc,imgAlt, parent) {
     return button; 
 }
 
+// creo la funzione di setup pe
 function setupButtons() {
   
     centerButton.id = 'centerButton';
@@ -58,6 +59,7 @@ function setupButtons() {
 document.addEventListener('DOMContentLoaded', setupButtons);
 
 // creo un overlay per ringraziare quando si vota
+
 function triggerOverlay() {
     const overlay = document.getElementById('overlayAnimation');
     overlay.style.display = 'flex';
@@ -66,20 +68,22 @@ function triggerOverlay() {
     setTimeout(function() {
         overlay.style.display = 'none';
     }, 2000);
-
 }
-// creo la funzione updateVotes()
 
+// creo la funzione che si occuperà di aggiornare il voto
 function updateVotes(type){
     if (type === 'negative') {negative++; totalVotes++;}//se l'argomento é negative aumento il counter di negative e il numero di voti totali
     else if( type === 'neutral') {neutral++; totalVotes++;} // se l'argomento é negative aumento il counter di neutral e il numero di voti totali
     else if( type === 'positive'){ positive++; totalVotes++;} // se l'argomento é positive aumento il counter di positive e il numero di voti totali
     updateDisplay(); // richiamo la funzione updateDisplay
     disableButton(5000); // disabilito i pulsanti per 5 secondi
-    triggerOverlay();
+    triggerOverlay(); // richiamo un overlay di ringraziamento
 }
 
+
+// creo la funzione principale per definire e visualizzare il voto medio dei clienti
 function updateDisplay(){
+
     //assegno agli id dei vari counter il textContent corretto associando la variabile
     document.getElementById('negativeCount').textContent = negative;
     document.getElementById('neutralCount').textContent = neutral;
@@ -113,7 +117,6 @@ function updateDisplay(){
     }}
 
     // creo la funzione per resettare il contatore sotto l'utilizzo di una password
-
     function resetVotes(){
         const password = prompt('inserici la password per resettare il contatore(ichea):');
         if (password === 'ichea'){
