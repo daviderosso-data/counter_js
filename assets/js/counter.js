@@ -43,9 +43,9 @@ function setupButtons() {
     centerButton.id = 'centerButton';
     centerBoxDiv.appendChild(centerButton); 
 
-    const negativeButton = createButton('negative', 'Poco Soddisfatto','assets/img/iconecolor/sad.png','gatto triste', centerBoxDiv);
-    const neutralButton = createButton('neutral', 'Non Male','assets/img/iconecolor/neutral.png','gatto neutrale', centerBoxDiv);
-    const positiveButton = createButton('positive', 'Che spettacolo!','assets/img/iconecolor/happy.png','gatto felice', centerBoxDiv);
+    const negativeButton = createButton('negative', 'Poco Soddisfatto','assets/img/buttons/sad.png','gatto triste', centerBoxDiv);
+    const neutralButton = createButton('neutral', 'Non Male','assets/img/buttons/neutral.png','gatto neutrale', centerBoxDiv);
+    const positiveButton = createButton('positive', 'Che spettacolo!','assets/img/buttons/happy.png','gatto felice', centerBoxDiv);
 
 // ascolto i click sugli elementi con id negative,neutral,positive e vado a richiamare la funzione updateVotes e passo l'argomento corrispondente
 
@@ -99,15 +99,15 @@ function updateDisplay(){
     //definisco quale immagine utilizzare per mostrare la media voti corrente
 
     if (average > 0.3){
-        centralImg.src = 'assets/img/iconeblu/happy.png'
+        centralImg.src = 'assets/img/buttons/happy.png'
         centralImg.alt = 'icona felice'
         averageText.textContent = 'che spettacolo!'
     }else if (average < -0,3){
-        centralImg.src = 'assets/img/iconeblu/sad.png'
+        centralImg.src = 'assets/img/buttons/sad.png'
         centralImg.alt = 'icona triste'
         averageText.textContent = 'poco soddisfatto'
     }else { 
-        centralImg.src = 'assets/img/iconeblu/neutral.png'
+        centralImg.src = 'assets/img/buttons/neutral.png'
         centralImg.alt = 'icona normale'
         averageText.textContent = 'non male'
     }}
