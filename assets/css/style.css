@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Wallpoet&display=swap');
 *{
     margin: 0;
     padding: 0;
@@ -53,13 +54,24 @@ body{
 }
 
 #result{
+    padding: 20px;
+    background-color: #ffee81;
+    display:block;
+    width: 250px;
+    align-items: left;
     margin-top: 100px;
-    font-size: 15px; 
+    font-size: 15px;
+    box-shadow: 3px 3px 3px 3px #0057AD50;
+}
+.number{
+    font-family: "Wallpoet", serif;
+    color:#0057AD
 }
 
 .counter{
     margin: 10px;
     color: #0057AD;
+    
 
 }
 
@@ -128,18 +140,23 @@ body{
     font-size: 25px;
     color: #FBDA0C;
 }
-
+.resetButton:hover{
+    background-color: #0057AD80;
+    color: #ffee81;
+}
 .resetButton{
-    background-color: #FBDA0C;
+    background-color:#ffee81;
     border-color: #0057AD;
     border-style: solid;
     border-width: 1px;
     color: #0057AD;
-    font-size: 20px;
-    border-radius: 10px;
-    padding: 10px;
+    font-size: 15px;
+    border-radius: 5px;
+    padding: 5px;
     margin: 10px;
     cursor: pointer;
+    box-shadow: 2px 2px 2px 2px #0057AD50;
+    width: 200px;
 }
 
 #title{
@@ -172,3 +189,4 @@ body{
     align-items: center;
     z-index: 100;
 }
+

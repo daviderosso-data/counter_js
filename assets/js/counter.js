@@ -6,7 +6,17 @@ let positive = 0;
 let totalVotes = 0;
 const centerBoxDiv = document.getElementById('centerBox');
 const spashBox = document.getElementById('spashScreen');
-const centerButton = document.createElement('div'); 
+const centerButton = document.createElement('div');
+const negCounter = document.getElementById('negativeCount');
+const neutCounter = document.getElementById('neutralCount'); 
+const posCounter = document.getElementById('positiveCount');
+const totCounter = document.getElementById('totalVote');
+const averageCounter =  document.getElementById('average');
+const centralImg = document.getElementById('centralImg');
+const averageText = document.getElementById('averageText');
+
+// Inizializza i pulsanti al caricamento della pagina
+document.addEventListener('DOMContentLoaded', setupButtons);
 
 // ascolto i click sull'elemento reset e vado a richiamare la funzione resetVotes
 document.getElementById('reset').addEventListener('click', resetVotes);
@@ -38,7 +48,7 @@ function createButton(id, buttonText,imgSrc,imgAlt, parent) {
     return button; 
 }
 
-// creo la funzione di setup pe
+// creo la funzione di setup 
 function setupButtons() {
   
     centerButton.id = 'centerButton';
@@ -49,14 +59,18 @@ function setupButtons() {
     const positiveButton = createButton('positive', 'Che spettacolo!','assets/img/buttons/happy.png','gatto felice', centerBoxDiv);
 
 // ascolto i click sugli elementi con id negative,neutral,positive e vado a richiamare la funzione updateVotes e passo l'argomento corrispondente
+    centerBoxDiv.addEventListener('click', (event)=> {
+    const target = event.target;
 
-    document.getElementById('negative').addEventListener('click', ()=> updateVotes('negative'));
-    document.getElementById('neutral').addEventListener('click', ()=> updateVotes('neutral'));  
-    document.getElementById('positive').addEventListener('click', ()=> updateVotes('positive')); 
+    // Controlla se il target é un pulsante o assegna target al button piú vicino
+    if (target.tagName === 'BUTTON' || target.closest('button')) {
+        const button = target.closest('button'); // Trova il pulsante più vicino e lo assegna alla costante button
+        const buttonId = button.id; // vado ad assegnare a buttonId l'ID del pulsante
+        updateVotes(buttonId); // Richiama la funzione `updateVotes` con l'ID del pulsante
+    }
+});
 }
 
-// Inizializza i pulsanti al caricamento della pagina
-document.addEventListener('DOMContentLoaded', setupButtons);
 
 // creo un overlay per ringraziare quando si vota
 
@@ -85,20 +99,17 @@ function updateVotes(type){
 function updateDisplay(){
 
     //assegno agli id dei vari counter il textContent corretto associando la variabile
-    document.getElementById('negativeCount').textContent = negative;
-    document.getElementById('neutralCount').textContent = neutral;
-    document.getElementById('positiveCount').textContent = positive;
-    document.getElementById('totalVote').textContent = totalVotes;
+    negCounter.textContent = negative;
+    neutCounter.textContent = neutral;
+    posCounter.textContent  = positive;
+    totCounter.textContent = totalVotes;
 
 
     // creo la variabile average
 
     let average = (positive-negative) / (totalVotes || 1); // calcolo la media ponderata sul totale dei voti, aggiungo un OR per evitare di dividere per 0
-    document.getElementById('average').textContent = average.toFixed(2); // assegno all'id average il valore della media e limito il numero a 2 decimali
-
-    // creo la costante centralImg assegnata all'icona centrale
-    const centralImg = document.getElementById('centralImg');
-    const averageText = document.getElementById('averageText');
+    averageCounter.textContent = average.toFixed(2)
+    
 
     //definisco quale immagine utilizzare per mostrare la media voti corrente
 
