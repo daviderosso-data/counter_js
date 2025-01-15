@@ -4,8 +4,7 @@ let negative = 0;
 let neutral = 0;
 let positive = 0;
 let totalVotes = 0;
-const centerBoxDiv = document.getElementById('centerBox');
-const spashBox = document.getElementById('spashScreen');
+
 const centerButton = document.createElement('div');
 const negCounter = document.getElementById('negativeCount');
 const neutCounter = document.getElementById('neutralCount'); 
@@ -16,10 +15,12 @@ const centralImg = document.getElementById('centralImg');
 const averageText = document.getElementById('averageText');
 
 // Inizializza i pulsanti al caricamento della pagina
-document.addEventListener('DOMContentLoaded', setupButtons);
+window.onload = setupButtons;
 
 // ascolto i click sull'elemento reset e vado a richiamare la funzione resetVotes
-document.getElementById('reset').addEventListener('click', resetVotes);
+const reset = document.getElementById('reset');
+reset.onclick = resetVotes;
+
 
 // aggiungo una funzione per disabilitare i pulsanti di voto dopo aver votato
 
@@ -38,19 +39,30 @@ function disableButton(time){
 // Funzione per la creazione dei pulsanti con immagine, alt text, e testo
 
 function createButton(id, buttonText,imgSrc,imgAlt, parent) {
-    const button = document.createElement('button'); 
+    const button = document.createElement('button'); // creo un elemento button 
     button.id = id; 
     button.className = 'button'; 
-    button.innerHTML = `
-        <img id="buttonImg" src="${imgSrc}" alt="${imgAlt}">
-       <span id="buttonText"><br>${buttonText}</span>`;
-    centerButton.appendChild(button); 
+
+    const img = document.createElement('img'); // creo un elemento img
+    img.src = imgSrc;
+    img.alt = imgAlt;
+
+    const span = document.createElement('span') // creo elemento span e br
+    const br = document.createElement('br');
+    span.id = 'buttonText';
+
+    span.appendChild(br); //aggiungo a span br
+    span.appendChild(document.createTextNode(buttonText)); //aggiungo a span il testo di buttonText passato alla funzione
+    button.appendChild(img); // aggiungo a button l'immagine
+    button.appendChild(span) // aggiungo a button il contenitore 
+    centerButton.appendChild(button);  //aggiungo a centerButton il Button
+    
     return button; 
 }
 
 // creo la funzione di setup 
 function setupButtons() {
-  
+    const centerBoxDiv = document.getElementById('centerBox');
     centerButton.id = 'centerButton';
     centerBoxDiv.appendChild(centerButton); 
 
@@ -59,7 +71,7 @@ function setupButtons() {
     const positiveButton = createButton('positive', 'Che spettacolo!','assets/img/buttons/happy.png','gatto felice', centerBoxDiv);
 
 // ascolto i click sugli elementi con id negative,neutral,positive e vado a richiamare la funzione updateVotes e passo l'argomento corrispondente
-    centerBoxDiv.addEventListener('click', (event)=> {
+    centerBoxDiv.onclick = (event)=> {
     const target = event.target;
 
     // Controlla se il target é un pulsante o assegna target al button piú vicino
@@ -68,7 +80,7 @@ function setupButtons() {
         const buttonId = button.id; // vado ad assegnare a buttonId l'ID del pulsante
         updateVotes(buttonId); // Richiama la funzione `updateVotes` con l'ID del pulsante
     }
-});
+}
 }
 
 
@@ -150,7 +162,7 @@ function updateDisplay(){
     const content = document.getElementById('content');
 
     // ascolto i click sull'elemento lascia una recensione per chiudere lo splashScreen
-    closeSplash.addEventListener('click', closeSplashScreen);
+    closeSplash.onclick = closeSplashScreen;
 
     // creo un timer di inattivitá di 8 seconti
     let inactivityTimer;
@@ -174,13 +186,12 @@ function updateDisplay(){
         resetInactivityTimer(); //riavvio il timer inattivitá
     }
 
-    // ascolto i click sull'elemento lascia una recensione per chiudere lo splashScreen
-    closeSplash.addEventListener('click', closeSplashScreen);
     // creo un array di eventi e se viene triggerato uno degli eventi vado a resettare il timer
-    let events = ['mousemove','click','keydown','scroll','touchstart'];
-    events.forEach(event => {
-        document.addEventListener(event,resetInactivityTimer);
-    });
+
+    document.onmousemove = resetInactivityTimer;
+    document.onclick = resetInactivityTimer;
+    document.ontouchstart = resetInactivityTimer;
+
 
     // avvio il timer 
     resetInactivityTimer();
