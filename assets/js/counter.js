@@ -21,9 +21,7 @@ window.onload = setupButtons;
 const reset = document.getElementById('reset');
 reset.onclick = resetVotes;
 
-
 // aggiungo una funzione per disabilitare i pulsanti di voto dopo aver votato
-
 function disableButton(time){
     const buttons = document.querySelectorAll('.button'); //seleziono tutti i pulsanti
     buttons.forEach(button => {
@@ -37,7 +35,6 @@ function disableButton(time){
 }
 
 // Funzione per la creazione dei pulsanti con immagine, alt text, e testo
-
 function createButton(id, buttonText,imgSrc,imgAlt, parent) {
     const button = document.createElement('button'); // creo un elemento button 
     button.id = id; 
@@ -70,7 +67,7 @@ function setupButtons() {
     const neutralButton = createButton('neutral', 'Non Male','assets/img/buttons/neutral.png','gatto neutrale', centerBoxDiv);
     const positiveButton = createButton('positive', 'Che spettacolo!','assets/img/buttons/happy.png','gatto felice', centerBoxDiv);
 
-// ascolto i click sugli elementi con id negative,neutral,positive e vado a richiamare la funzione updateVotes e passo l'argomento corrispondente
+    // ascolto i click sugli elementi con id negative,neutral,positive e vado a richiamare la funzione updateVotes e passo l'argomento corrispondente
     centerBoxDiv.onclick = (event)=> {
     const target = event.target;
 
@@ -83,9 +80,7 @@ function setupButtons() {
 }
 }
 
-
 // creo un overlay per ringraziare quando si vota
-
 function triggerOverlay() {
     const overlay = document.getElementById('overlayAnimation');
     overlay.style.display = 'flex';
@@ -109,22 +104,18 @@ function updateVotes(type){
 
 // creo la funzione principale per definire e visualizzare il voto medio dei clienti
 function updateDisplay(){
-
     //assegno agli id dei vari counter il textContent corretto associando la variabile
     negCounter.textContent = negative;
     neutCounter.textContent = neutral;
     posCounter.textContent  = positive;
     totCounter.textContent = totalVotes;
 
-
     // creo la variabile average
-
     let average = (positive-negative) / (totalVotes || 1); // calcolo la media ponderata sul totale dei voti, aggiungo un OR per evitare di dividere per 0
     averageCounter.textContent = average.toFixed(2)
     
 
     //definisco quale immagine utilizzare per mostrare la media voti corrente
-
     if (average > 0.3){
         centralImg.src = 'assets/img/buttons/happy.png'
         centralImg.alt = 'icona felice'
@@ -154,9 +145,7 @@ function updateDisplay(){
     }
 
     // gestisco lo splash screen
-
     // creo le costanti con i riferimenti agli elementi del DOM
-
     const splashScreen = document.getElementById('splashScreen');
     const closeSplash = document. getElementById('closeSplash');
     const content = document.getElementById('content');
@@ -187,7 +176,6 @@ function updateDisplay(){
     }
 
     // creo un array di eventi e se viene triggerato uno degli eventi vado a resettare il timer
-
     document.onmousemove = resetInactivityTimer;
     document.onclick = resetInactivityTimer;
     document.ontouchstart = resetInactivityTimer;
