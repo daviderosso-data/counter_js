@@ -22,6 +22,7 @@ https://www.linkedin.com/in/rosso-davide/
 
 ## Version History
 
+* 1.2.0 Miglioramento codice e ottimizzazione performance
 * 1.1.0 Stable
 * 1.0.6 Bugfix riordino codice e aggiornamento README
 * 1.0.5 Bugfix riordino codice
