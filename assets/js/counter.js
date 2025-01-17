@@ -49,7 +49,7 @@ function createButton(id, buttonText,imgSrc,imgAlt, parent) {
 
     const span = document.createElement('span') // creo elemento span e br
     const br = document.createElement('br');
-    span.id = 'buttonText';
+    span.className = 'buttonText';
 
     span.appendChild(br); //aggiungo a span br
     span.appendChild(document.createTextNode(buttonText)); //aggiungo a span il testo di buttonText passato alla funzione

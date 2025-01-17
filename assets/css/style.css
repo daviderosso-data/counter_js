@@ -39,7 +39,7 @@ body{
     cursor: pointer;
 }
 
-#buttonText{
+.buttonText{
     font-size: 25px;
     padding: 0px;
     color: #0057AD;
@@ -139,7 +139,7 @@ body{
     margin: 20px;
 }
 
-#splashContent{
+.splashContent{
     text-align: center;
     margin: 50px;
     font-size: 25px;
